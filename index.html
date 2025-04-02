@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>BayaniChronicles - The Lives of the Philippine Heroes in Motion</title>
+    <style>
+        html, body {
+            overflow-x: hidden;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        </style>
+        
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            width: 100%;
+            height: 100%;
+            font-family: 'Poppins', sans-serif;
+            background-color: #0033A0;
+            color: #ddd;
+            text-align: center;
+            line-height: 1.6;
+        }
+        header {
+            background-color: #CE1126;
+            color: white;
+            padding: 20px 0;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #fad400;
+            padding: 10px 0;
+        }
+        nav a {
+            color: rgb(0, 0, 0);
+            text-decoration: none;
+            padding: 0 20px;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: #ffffff;
+        }
+        main {
+            padding: 30px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+            background-color: #000000;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+        section {
+            margin-bottom: 30px;
+        }
+        h1, h2, p {
+            margin: 10px 0;
+        }
+        h1 {
+            font-size: 3em;
+            font-weight: 800;
+        }
+        h2 {
+            font-size: 2.5em;
+            font-weight: 700;
+        }
+        p {
+            font-size: 1.2em;
+            font-weight: 400;
+        }
+        footer {
+            text-align: center;
+            padding: 10px 0;
+            background-color: #CE1126;
+            color: white;
+            margin-top: 20px;
+        }
+        .hero-card {
+            background-color: #fff;
+            padding: 15px;
+            margin: 10px 0;
+            border-left: 6px solid #007bff;
+            color: #000;
+            border-radius: 8px;
+            font-weight: 600;
+        }
+        .glowbutton {
+            --glow-color: rgb(176, 252, 255);
+            --glow-spread-color: rgba(123, 251, 255, 0.781);
+            --enhanced-glow-color: rgb(206, 255, 255);
+            --btn-color: rgb(61, 127, 136);
+            border: 0.25em solid var(--glow-color);
+            padding: 1em 3em;
+            color: var(--glow-color);
+            font-size: 18px;
+            font-weight: bold;
+            background-color: var(--btn-color);
+            border-radius: 1em;
+            outline: none;
+            box-shadow: 0 0 1em 0.25em var(--glow-color),
+                0 0 4em 1em var(--glow-spread-color),
+                inset 0 0 0.75em 0.25em var(--glow-color);
+            text-shadow: 0 0 0.5em var(--glow-color);
+            position: relative;
+            transition: all 0.3s;
+            display: inline-block;
+            margin: 20px auto;
+            text-decoration: none;
+        }
+        .glowbutton:hover {
+            color: var(--btn-color);
+            background-color: var(--glow-color);
+            box-shadow: 0 0 1.5em 0.5em var(--glow-color),
+                0 0 5em 2em var(--glow-spread-color),
+                inset 0 0 1em 0.3em var(--glow-color);
+        }
+        .card-container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 25px;
+            padding: 30px 0;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .flip-card {
+            background-color: transparent;
+            width: 220px;
+            height: 280px;
+            perspective: 1000px;
+            margin: 10px;
+        }
+        .flip-card-inner {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            transition: transform 0.8s;
+            transform-style: preserve-3d;
+        }
+        .flip-card:hover .flip-card-inner {
+            transform: rotateY(180deg);
+        }
+        .flip-card-front, .flip-card-back {
+            box-shadow: 0 8px 14px 0 rgba(0, 0, 0, 0.3);
+            position: absolute;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+            border-radius: 12px;
+            background-color: #fff;
+            color: #000;
+            padding: 20px;
+        }
+        .flip-card-front {
+            background: linear-gradient(135deg, #e0f7ff 50%, #b0e0ff 100%);
+        }
+        .flip-card-back {
+            background: linear-gradient(135deg, #70c0ff 50%, #007bff 100%);
+            transform: rotateY(180deg);
+            color: white;
+        }
+        a {
+            color: #ffdd57;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        a:hover {
+            color: #fff;
+        }
+
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2em;
+            }
+            h2 {
+                font-size: 1.8em;
+            }
+            main {
+                padding: 20px 10px;
+            }
+            nav a {
+                padding: 0 10px;
+                font-size: 0.9em;
+            }
+            .card-container {
+                gap: 15px;
+                padding: 15px 0;
+            }
+            .flip-card {
+                width: calc(50% - 20px);
+                height: 240px;
+                margin: 5px;
+            }
+            .flip-card-front, .flip-card-back {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>BayaniChronicles</h1>
+        <p>The Lives of the Philippine Heroes in Motion</p>
+    </header>
+    
+    <nav>
+        <div style="text-align: center;">
+            <a href="Heroes.html">Bayani</a> 
+            <a href="History.html">History</a> 
+            <a href="Reference.html">Reference</a>
+            <a href="Developers.html">Developers</a>
+        </div>
+    </nav>
+
+    <main>
+        <section id="home">
+            <h2>Maligayang pagdating sa BayaniChronicles</h2>
+            <p>Tuklasin ang mga kwento ng mga magigiting na lalaki at babae na humubog sa kasaysayan ng Pilipinas. Mula sa mga rebolusyonaryo hanggang sa mga lider, ang kanilang mga buhay ay patuloy na nagbibigay inspirasyon sa atin ngayon.</p>
+            <a href="Heroes.html" class="glowbutton">Tuklasin ang mga Alamat</a>
+        </section>
+
+        <div class="card-container">
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <p class="title">Pangkalahatang-ideya ng Kasaysayan</p>
+                        <p>Alamin ang tungkol sa pakikibaka ng bansa para sa kalayaan.</p>
+                    </div>
+                    <div class="flip-card-back">
+                        <p class="title">Pangkalahatang-ideya</p>
+                        <p>Ang pakikibaka para sa kalayaan ay humubog sa Pilipinas tulad ng alam natin ngayon.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <p class="title">Mga Bayani ng Pilipinas</p>
+                        <p>Kilalanin ang mga alamat na tauhan ng rebolusyon.</p>
+                    </div>
+                    <div class="flip-card-back">
+                        <p class="title">Mga Bayani</p>
+                        <p>Mula kay Rizal hanggang kay Bonifacio, ang kanilang mga sakripisyo ay buhay pa rin.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <p class="title">Pamanang Kultura</p>
+                        <p>Tuklasin ang mga pangmatagalang epekto sa kulturang Pilipino.</p>
+                    </div>
+                    <div class="flip-card-back">
+                        <p class="title">Pamanang Kultura</p>
+                        <p>Ang mga tradisyon at mga pagpapahalaga ay nakaugat sa mga sakripisyong bayani.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flip-card">
+                <div class="flip-card-inner">
+                    <div class="flip-card-front">
+                        <p class="title">Makabagong Epekto</p>
+                        <p>Paano hinubog ng kasaysayan ang Pilipinas ngayon.</p>
+                    </div>
+                    <div class="flip-card-back">
+                        <p class="title">Epekto</p>
+                        <p>Ang kanilang impluwensya ay buhay pa rin sa makabagong lipunan.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <section id="contact">
+            <h2>Makipag-ugnayan sa Amin</h2>
+            <p>May mga kuwestiyon o kwento na nais ibahagi? Makipag-ugnayan sa amin sa <a href="mailto:info@bayanichronicles.com">info@bayanichronicles.com</a>.</p>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 BayaniChronicles. All rights reserved.</p>
+    </footer>
+</body>
+</html>
